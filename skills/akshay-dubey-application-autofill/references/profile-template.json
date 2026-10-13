@@ -1,34 +1,116 @@
 {
-  "_note": "Applicant profile for Application Autofill. Fill from the resume plus the user's answers. Never add passwords, government ID numbers, bank or card details, or voluntary self-identification answers.",
-  "fullName": "",
-  "preferredName": "",
-  "email": "",
-  "phone": "",
-  "address": { "city": "", "state": "", "postalCode": "", "country": "" },
-  "links": { "linkedin": "", "github": "", "portfolio": "" },
+  "_note": "Applicant profile for Application Autofill: every detail job applications commonly ask for. Fill from the resume plus the user's answers. Use null for unknown. Never add passwords, government ID numbers, date of birth, bank or card details, visa or immigration document details, or voluntary self-identification answers (gender, race/ethnicity, veteran, disability). Those are entered by the user on the form itself.",
+
+  "personal": {
+    "legalFirstName": null,
+    "legalMiddleName": null,
+    "legalLastName": null,
+    "preferredName": null,
+    "pronounsOnForms": "leave for user",
+    "email": null,
+    "phone": null,
+    "phoneType": null,
+    "address": {
+      "street": null,
+      "unit": null,
+      "city": null,
+      "state": null,
+      "postalCode": null,
+      "country": null
+    },
+    "links": {
+      "linkedin": null,
+      "github": null,
+      "portfolio": null,
+      "website": null
+    }
+  },
+
   "workAuthorization": {
-    "authorizedCountries": [],
-    "needsSponsorshipNow": null,
-    "needsSponsorshipLater": null
+    "country": null,
+    "legallyAuthorizedToWork": null,
+    "requiresSponsorshipNow": null,
+    "requiresSponsorshipInFuture": null,
+    "acceptableEmploymentTypes": ["W2", "C2C", "1099", "Full-time"],
+    "securityClearance": null,
+    "willingToObtainClearance": null
   },
+
+  "currentRole": {
+    "employer": null,
+    "title": null,
+    "employmentType": null,
+    "startDate": null,
+    "reasonForLeaving": null,
+    "currentlyEmployed": null
+  },
+
   "preferences": {
-    "workMode": "",
+    "desiredTitles": [],
+    "workMode": null,
     "willingToRelocate": null,
-    "relocationNotes": "",
-    "earliestStart": "",
-    "noticePeriod": "",
-    "salaryExpectation": "",
-    "travelPercent": ""
+    "relocationNotes": null,
+    "preferredLocations": [],
+    "travelPercentMax": null,
+    "earliestStartDate": null,
+    "noticePeriod": null,
+    "desiredSalaryFullTime": null,
+    "desiredHourlyRateW2": null,
+    "desiredHourlyRateC2C": null,
+    "salaryAnswerStyle": "give range",
+    "openToContract": null,
+    "openToContractToHire": null
   },
+
+  "experience": {
+    "totalYears": null,
+    "yearsBySkill": {},
+    "workHistorySource": "tailored resume (fill each job from it; do not retype here)"
+  },
+
+  "education": [
+    { "degree": null, "field": null, "school": null, "city": null, "country": null, "startYear": null, "graduationYear": null, "gpa": null }
+  ],
+
+  "certifications": [
+    { "name": null, "issuer": null, "status": null, "year": null, "credentialId": null }
+  ],
+
+  "skills": [],
+  "languages": [ { "language": null, "proficiency": null } ],
+
+  "references": [
+    { "name": null, "title": null, "company": null, "relationship": null, "email": null, "phone": null, "consentGiven": null }
+  ],
+
   "standardAnswers": {
     "over18": null,
     "previouslyEmployedAt": [],
-    "nonCompete": null,
+    "previouslyAppliedAt": [],
+    "relativesAtCompany": null,
+    "nonCompeteOrNonSolicit": null,
     "backgroundCheckConsent": null,
-    "defaultReferralSource": ""
+    "drugTestConsent": null,
+    "canPerformEssentialFunctions": null,
+    "shiftOrOnCallOk": null,
+    "defaultReferralSource": null,
+    "referredByEmployee": null,
+    "textMessageConsent": "ask each time"
   },
-  "education": [
-    { "degree": "", "field": "", "school": "", "graduationYear": "" }
-  ],
-  "updated": ""
+
+  "reusableAnswers": {
+    "_note": "Short first-person answers the user approved, reused as drafts and adapted to each job.",
+    "tellUsAboutYourself": null,
+    "whyLeavingCurrentRole": null,
+    "greatestAchievement": null,
+    "whyThisTypeOfRole": null
+  },
+
+  "documents": {
+    "libraryFolder": null,
+    "baseResume": null,
+    "tailoredResumesIndex": "index.json"
+  },
+
+  "updated": null
 }

@@ -5,7 +5,7 @@ license: MIT
 metadata:
   author: Akshay Dubey
   homepage: https://github.com/akshaydubey1
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Application Autofill
@@ -34,13 +34,11 @@ Read the tool's own skill or instructions before its first use, and follow its p
 
 Look for `applicant-profile.json` in the resume library folder (Resume Tailor's `~/Documents/Resumes/`, or the Project). If it's missing, build it from the base resume, then ask **once** for what the resume can't answer. Use `references/profile-template.json` as the shape.
 
-Ask only for:
-- work authorization in the country of the job, and whether they'll need sponsorship now or later
-- willingness to relocate, preferred work mode (remote, hybrid, onsite)
-- earliest start date or notice period
-- salary expectation (a number or range, or "prefer not to say")
-- how they heard about jobs by default (optional)
-- standard answers they want reused: "Are you 18+", "Have you worked here before", non-compete, background check consent
+`profile-template.json` lists every detail applications commonly ask for, in groups: personal and contact, work authorization, current role, preferences (work mode, relocation, start date, pay), experience, education, certifications, skills, languages, references, standard yes/no answers, and reusable short answers.
+
+Pre-fill everything the resume answers. Then ask, in **one** message, only for what's still null, with a suggested default where the resume hints at one. Typical gaps: work authorization and sponsorship, street address, work mode and relocation, start date and notice period, pay expectations (full-time salary and hourly rates), references, clearance, standard yes/no answers, and approval of the reusable short answers.
+
+Save the answers to `applicant-profile.json` as soon as they're given. Ask again only for fields a new form needs that are still null.
 
 **Never store** in the profile, and never type into any form:
 - passwords, one-time codes, security answers
