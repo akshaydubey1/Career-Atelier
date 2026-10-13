@@ -146,5 +146,19 @@
   "aws": 2006,
   "azure": 2010,
   "gcp": 2008,
-  "google cloud": 2008
+  "google cloud": 2008,
+  "postgresql": 1996,
+  "postgres": 1996,
+  "mysql": 1995,
+  "redis": 2009,
+  "mongodb": 2009,
+  "aurora": 2014,
+  "amazon rds": 2009,
+  "langsmith": 2023,
+  "langfuse": 2023,
+  "arize": 2020,
+  "vllm": 2023,
+  "kubecost": 2019,
+  "llamaindex": 2022,
+  "cdktf": 2020
 }
