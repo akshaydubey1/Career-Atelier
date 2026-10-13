@@ -5,7 +5,7 @@ license: MIT
 metadata:
   author: Akshay Dubey
   homepage: https://github.com/akshaydubey1
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Resume Tailor
@@ -16,11 +16,11 @@ This skill helps any job seeker apply smarter, in any AI tool that supports Agen
 
 | Best match | What happens |
 | --- | --- |
-| 85% or more | Reuse that resume as is. No tailoring. Write the cover letter only. |
-| 75–84% | Tailor the best resume up to 85% or more, then write the cover letter. |
-| Below 75% | Stop with a blunt verdict. Nothing else. |
+| 85% or more, on a resume this skill already tailored | Reuse it as is. Write the cover letter only. |
+| 50–84% (or any untailored resume) | Full tailoring: build the strongest honest resume for this job, aiming for 85% or more, then write the cover letter. |
+| Below 50% | Stop with a blunt verdict. Nothing else. |
 
-Spend as little effort as possible. Never redo work that already exists. Never invent experience.
+Save effort on scoring and reuse. Spend it on making the tailored resume excellent. Never invent experience.
 
 ## 0. Check what this tool can do (silently, once per session)
 
@@ -85,7 +85,7 @@ Check the arithmetic. Score strictly: when unsure, take the lower score.
 
 ## 5. Decide the path
 
-### Below 75%: hard stop
+### Below 50%: hard stop
 Do not tailor, write a cover letter, draft messages, add to the job list, or suggest courses or projects. Reply with only:
 
 1. `Match: NN% — skip this one.`
@@ -94,38 +94,84 @@ Do not tailor, write a cover letter, draft messages, add to the job list, or sug
 
 Be honest and direct, under ~80 words, with no softening. If the user says "proceed anyway" or confirms experience that isn't on the resume, rescore with it.
 
-### 85% or more: reuse, no tailoring
-Copy that resume to the new file name (section 9) without changing its content. Run section 11 on the copy. Add an `index.json` entry. Go to step 7.
+### 85% or more, and the resume already passed the quality bar: reuse
+Use this path only if the resume was made by this skill earlier (it has an `index.json` entry) and was tailored for a role with the same title family. Copy it to the new file name (section 9) without changing its content. Run section 11 on the copy. Add an `index.json` entry. Go to step 7.
 
-### 75–84%: tailor (step 6)
+The base resume, or any resume not made by this skill, always goes through step 6, even at 85% or more.
 
-## 6. Tailor to 85% or more
+### 50–84% (or 85%+ that can't be reused): full tailoring (step 6)
 
-Start from a copy of the best-scoring resume's .docx. Never edit the base.
+## 6. Tailor: build the strongest honest resume for this job
 
-- Raise the score only by surfacing real experience:
-  - move the relevant bullets up
-  - use the job's exact terms where the experience truly matches ("GKE" vs "Kubernetes", "CI/CD" vs "pipelines")
-  - turn under-described experience into explicit bullets
-  - add skills the user has actually used
-- Write the summary with the years of experience from settings and the role's top three must-haves the user meets.
-- **Never invent** employers, titles, dates, degrees, metrics, tools or certifications, even to reach 85%. Keep certifications, courses and personal projects in their own sections, never presented as work experience.
-- Rescore. If an honest score can't reach 85%, deliver the best honest version and list the requirements holding it back, one line each.
-- Keep the same page count as the source resume.
+The goal is a resume a recruiter shortlists in a 10-second scan and an ATS ranks near the top, while every line stays true. The target is 85% or more. Work through all six stages. Don't skip any for speed.
 
-**Preserve formatting (non-negotiable).** Edit the copied .docx in place with python-docx: change the text inside existing runs and paragraphs, and keep fonts, sizes, bold and italic, spacing, margins, bullet styles and section order. To add a bullet, copy an existing bullet paragraph's XML and replace its text. Never rebuild the document or change fonts.
+### 6a. Decode the job
+- Write down, for your own use: the role's core problem (what this hire is expected to fix or own), the top 5 must-haves in order of importance, the seniority signals (lead, mentor, strategy, ownership), and the domain (industry, regulated or not, scale).
+- Build the **keyword list**: every tool, platform, practice and certification the posting names, with the exact spelling it uses and common variants (`CI/CD` = `pipelines`, `IAM` = `identity and access management`, `EKS` = `Amazon EKS`).
 
-Then run `scripts/finalize.py` (section 11) to make the PDF. Check page 1 and the page count. Save the .docx and .pdf to the library and add the `index.json` entry.
+### 6b. Map the evidence
+- For each must-have and nice-to-have, find the strongest proof across the source resume, the user's other resumes in the library, and experience the user has confirmed. Strongest means production work, with scope or a number, in the most recent role.
+- Mark each requirement: **proven** (strong bullet exists), **buried** (true but weak, vague, or in an old role or the skills list only), or **gap** (no real evidence).
+- If a must-have is a gap but the user might have it, ask about it in **one** batched question before writing (e.g. "Have you written AWS IAM policies, used Harness, or worked on migrations?"). If the user isn't present to answer, proceed without it.
 
-## 7. Cover letter (75% or more only)
+### 6c. Rewrite, top to bottom
+1. **Title line under the name:** match the posting's title family if it truthfully describes the user's work (`Senior Platform Engineer` for a platform role). Never claim a level the user hasn't held.
+2. **Summary (3–4 lines):** years of experience from settings; the role's top 3 must-haves, each with one proof point or number; one line on the kind of impact this role needs (e.g. reliability at scale, secure self-service platforms). No generic adjectives.
+3. **Skills:** reorder the categories so the posting's must-haves come first. Use the posting's exact terms where true. Remove skills irrelevant to this job if space is needed. Never add a skill the user hasn't used.
+4. **Experience bullets**, for each role:
+   - Order bullets by relevance to this job; the most relevant goes first.
+   - Each bullet follows **action verb + what was done + tools + measurable result or scope**. Example: "Built least-privilege IAM roles for 200+ EKS environments with Terraform, removing standing admin access."
+   - Turn every **buried** requirement into a clear bullet in the most recent role where it's true.
+   - Every must-have the user meets appears in **at least one experience bullet**, not only in the skills list, using the posting's term.
+   - Cut or merge bullets with no relevance to this job to make room. The most recent role gets 5–7 bullets, older roles 2–4, and roles over 10 years old 1–2.
+   - Keep every existing number. Never invent a metric. When there's no number, use scope (environments, users, repositories, teams, traffic).
+   - Vary the verbs and don't start two bullets in a row with the same one.
+5. **Certifications and education:** put certifications this job values first. Keep labels like "previously held" and "coursework" exactly honest.
+
+### 6d. Keep the format and make it ATS-safe
+- **Preserve formatting (non-negotiable).** Edit a copy of the source .docx in place with python-docx: change the text inside existing runs and paragraphs, and keep fonts, sizes, bold and italic, spacing, margins, bullet styles and section order. To add a bullet, copy an existing bullet paragraph's XML and replace its text. Never rebuild the document or change fonts.
+- Keep the same page count as the source (2 pages at most for 10+ years, 1 page under 5 years).
+- Run `scripts/finalize.py` (section 11) to make the PDF.
+- **ATS check on the PDF:** extract the text (`pdftotext`) and confirm:
+  - the name, email and phone come out as plain text at the top
+  - section headings are standard (Summary, Skills, Experience, Education, Certifications)
+  - dates read in one consistent format
+  - every keyword from 6a that the user truly has is found in the extracted text
+  - no text is lost to tables, text boxes, headers or footers
+
+### 6e. Quality review (fresh eyes)
+Review the PDF as a demanding recruiter for this exact role would. If you can start a separate reviewer (a sub-agent that hasn't seen your work), give it the job posting and the PDF and ask it to grade. Otherwise, reread it cold yourself.
+
+Grade each item pass or fail:
+
+| Check | Pass when |
+| --- | --- |
+| 10-second scan | The title line, summary and first bullet of the latest role together show this person fits this job |
+| Must-have coverage | Every must-have the user meets appears in an experience bullet using the posting's term |
+| Evidence | At least 70% of bullets carry a number or a clear scope |
+| Relevance | No bullet in the latest role is irrelevant to this job |
+| Honesty | Every claim traces to the source resume or something the user confirmed |
+| Voice | No filler phrases (section 11), no repeated verb openers, no keyword lists inside bullets |
+| ATS | Every check in 6d passes |
+| Layout | Same fonts, spacing and page count as the source, and nothing overflows |
+
+Fix every fail, then grade again. Don't deliver until all checks pass, except where an honest gap makes a check impossible.
+
+### 6f. Rescore and save
+- Rescore with the section 4 formula. If an honest score is still below 85%, deliver the strongest honest version anyway and list the requirements holding it back, one line each.
+- Save the .docx and .pdf to the library and add the `index.json` entry.
+
+## 7. Cover letter (50% or more only)
 
 - About 250–330 words in 3–4 paragraphs, written in the user's first person.
 - Use the resume's font family and the same name and contact header, and sign it with the user's full name.
 - Name the company and role, and make one specific, verified point about the company.
-- Give 2–3 concrete proof points tied to the top must-haves, and close with a simple, low-key ask.
+- Give 2–3 concrete proof points tied to the top must-haves.
+- If a must-have is a real gap, address it in one honest sentence that points to the closest related experience. Never claim the missing skill.
+- Close with a simple, low-key ask.
 - Build it as a .docx in a temporary location (never the library) and run `scripts/finalize.py <file> "<Full Name>" cover`. Hand over the PDF, then **delete both the .docx and the PDF from the temporary location**.
 
-## 8. Output (75% or more only)
+## 8. Output (50% or more only)
 
 - Hand over exactly two PDFs: the resume and the cover letter. Use the tool's normal way of giving files to the user, or save them to the library folder and give the paths.
 - Reply in 3–4 lines: the path taken (reused or tailored), the match % before → after, any remaining gaps, and the two file names.
@@ -148,7 +194,7 @@ If a resume name already exists for a different role at the same company, add a 
 
 ## 10. Private job list
 
-**Only jobs that scored 75% or more are added.**
+**Only jobs that scored 50% or more are added.**
 
 After step 8, silently add one row to `jobs.csv` (create it with a header row if it's missing). Don't announce it or show it.
 

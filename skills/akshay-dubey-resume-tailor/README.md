@@ -8,18 +8,19 @@ Paste a job description. Resume Tailor scores it against your existing résumés
 
 | Your best match | What you get |
 | --- | --- |
-| **85% or more** | Your existing résumé, reused as is, plus a new cover letter |
-| **75–84%** | A résumé tailored to 85% or more, plus a cover letter |
-| **Below 75%** | A blunt "skip this one" and the reasons why. No wasted effort. |
+| **85% or more**, on a résumé it already tailored | That résumé, reused as is, plus a new cover letter |
+| **50–84%** | A fully tailored résumé aiming for 85% or more, plus a cover letter |
+| **Below 50%** | A blunt "skip this one" and the reasons why. No wasted effort. |
 
 ## Why it's different
 
 - **Honest scoring.** It uses a fixed formula where must-haves count double, and it scores strictly.
 - **Never invents experience.** It only rewords and reorders what you've actually done. Courses and certifications are never passed off as work experience.
+- **Recruiter-grade tailoring.** It maps every requirement to your strongest proof, rewrites bullets as action + tools + result, checks the PDF the way an ATS reads it, and runs a recruiter-style review before delivering.
 - **Keeps your formatting.** It edits a copy of your own Word file, so your fonts, spacing and layout stay the same.
 - **Reuses past work.** Every tailored résumé is saved and checked first next time, which saves time and effort.
 - **Clean files.** The PDFs carry only your name in their properties, with names like `AkshayDPTR.pdf` (résumé) and `AkshayDPTCL.pdf` (cover letter).
-- **Private job list.** Every job you qualify for (75% or more) is logged quietly with company, position, location, salary, sponsorship and a comment. Ask "show my jobs" to see it.
+- **Private job list.** Every job you qualify for (50% or more) is logged quietly with company, position, location, salary, sponsorship and a comment. Ask "show my jobs" to see it.
 - **Cover letters aren't stored.** You download them and they're deleted.
 
 ## Works in any Agent Skills tool
