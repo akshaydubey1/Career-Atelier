@@ -22,6 +22,7 @@ Paste a job description. Resume Tailor scores it against your existing résumés
 - **Reuses past work.** Every tailored résumé is saved and checked first next time, which saves time and effort.
 - **Clean files.** The PDFs carry only your name in their properties, with names like `AkshayDPTR.pdf` (résumé) and `AkshayDPTCL.pdf` (cover letter).
 - **Private job list.** Every job you qualify for (50% or more) is logged quietly with company, position, location, salary, sponsorship and a comment. Ask "show my jobs" to see it.
+- **Two separate downloads.** The résumé and cover letter always arrive as two separate PDFs, never zipped together.
 - **Cover letters aren't stored.** You download them and they're deleted.
 
 ## Works in any Agent Skills tool

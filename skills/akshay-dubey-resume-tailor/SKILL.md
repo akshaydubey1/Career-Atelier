@@ -5,7 +5,7 @@ license: MIT
 metadata:
   author: Akshay Dubey
   homepage: https://github.com/akshaydubey1
-  version: "1.2.0"
+  version: "1.2.1"
 ---
 
 # Resume Tailor
@@ -188,7 +188,7 @@ Fix every fail, then grade again. Don't deliver until all checks pass, except wh
 
 ## 8. Output (50% or more only)
 
-- Hand over exactly two PDFs: the resume and the cover letter. Use the tool's normal way of giving files to the user, or save them to the library folder and give the paths.
+- Hand over exactly two PDFs, the resume and the cover letter, as **two separate files, each ready to download on its own**. Never zip, bundle or combine them into one file or archive. Use the tool's normal way of giving files to the user (one file card or link per PDF), or save them to the library folder and give both paths.
 - Reply in 3–4 lines: the path taken (reused or tailored), the match % before → after, any remaining gaps, and the two file names.
 - Don't mention the job list.
 
