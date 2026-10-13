@@ -5,7 +5,7 @@ license: MIT
 metadata:
   author: Akshay Dubey
   homepage: https://github.com/akshaydubey1
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # Resume Tailor
@@ -103,7 +103,7 @@ The base resume, or any resume not made by this skill, always goes through step 
 
 ## 6. Tailor: build the strongest honest resume for this job
 
-The goal is a resume a recruiter shortlists in a 10-second scan and an ATS ranks near the top, while every line stays true. The target is 85% or more. Work through all six stages. Don't skip any for speed.
+The goal is a resume a recruiter shortlists in a 10-second scan and an ATS ranks near the top, while every line stays true. The target is 85% or more. Work through all seven stages. Don't skip any for speed.
 
 ### 6a. Decode the job
 - Write down, for your own use: the role's core problem (what this hire is expected to fix or own), the top 5 must-haves in order of importance, the seniority signals (lead, mentor, strategy, ownership), and the domain (industry, regulated or not, scale).
@@ -112,6 +112,7 @@ The goal is a resume a recruiter shortlists in a 10-second scan and an ATS ranks
 ### 6b. Map the evidence
 - For each must-have and nice-to-have, find the strongest proof across the source resume, the user's other resumes in the library, and experience the user has confirmed. Strongest means production work, with scope or a number, in the most recent role.
 - Mark each requirement: **proven** (strong bullet exists), **buried** (true but weak, vague, or in an old role or the skills list only), or **gap** (no real evidence).
+- For each **gap**, look up its equivalents in `references/tech-map.md` (section 2). If the user has an equivalent tool, the requirement is framed through the shared concept (6d), never claimed.
 - If a must-have is a gap but the user might have it, ask about it in **one** batched question before writing (e.g. "Have you written AWS IAM policies, used Harness, or worked on migrations?"). If the user isn't present to answer, proceed without it.
 
 ### 6c. Rewrite, top to bottom
@@ -128,7 +129,20 @@ The goal is a resume a recruiter shortlists in a 10-second scan and an ATS ranks
    - Vary the verbs and don't start two bullets in a row with the same one.
 5. **Certifications and education:** put certifications this job values first. Keep labels like "previously held" and "coursework" exactly honest.
 
-### 6d. Keep the format and make it ATS-safe
+### 6d. Technology intelligence (applies to every edit in 6c)
+Read `references/tech-map.md` before editing. Every technology you add, move or rename must pass all five tests:
+
+1. **Ecosystem fit:** it belongs to the stack that role actually used. EKS goes with IAM roles, IRSA and CloudFormation; AKS goes with Entra ID and Bicep; GKE goes with Workload Identity. Never mix clouds inside one bullet unless the role truly spanned them, and then say so plainly.
+2. **Timeline fit:** it existed during that role. Build a `roles.json` of each role's start year, end year and every technology in its bullets, then run `python scripts/tech_check.py roles.json`. Fix every FAIL. Verify any UNKNOWN yourself. Use the current year as the end of an ongoing role.
+3. **Placement:** a technology goes in the role where the user actually used it. Never move a tool into an older or newer role to fill a gap there.
+4. **Depth:** where the user's real experience is deep, show the specifics that prove it (tech-map section 3), such as IRSA, permission boundaries or drift detection, not vague labels.
+5. **Precision:** use the vendor's correct, current name and spelling (tech-map section 4). Mirror the posting's exact term once where it truly matches. Never use a buzzword the bullet can't back up.
+
+**Gaps through equivalents.** When the posting names a tool the user hasn't used but they've used an equivalent, keep their real tool and describe the shared concept in the posting's words. Example: for a Harness posting, write "Built CI/CD pipelines with staged approvals, automated rollback and canary releases (Jenkins, GitHub Actions)." Never write "Harness" in experience or skills unless the user has used it.
+
+**Make the story add up.** Read the finished experience section as a technical interviewer would. Each role should describe one believable system: its scale, the stack that ran it, how it was deployed, secured and observed. If a bullet reads like a keyword placed for the ATS rather than work someone did, rewrite or remove it.
+
+### 6e. Keep the format and make it ATS-safe
 - **Preserve formatting (non-negotiable).** Edit a copy of the source .docx in place with python-docx: change the text inside existing runs and paragraphs, and keep fonts, sizes, bold and italic, spacing, margins, bullet styles and section order. To add a bullet, copy an existing bullet paragraph's XML and replace its text. Never rebuild the document or change fonts.
 - Keep the same page count as the source (2 pages at most for 10+ years, 1 page under 5 years).
 - Run `scripts/finalize.py` (section 11) to make the PDF.
@@ -139,7 +153,7 @@ The goal is a resume a recruiter shortlists in a 10-second scan and an ATS ranks
   - every keyword from 6a that the user truly has is found in the extracted text
   - no text is lost to tables, text boxes, headers or footers
 
-### 6e. Quality review (fresh eyes)
+### 6f. Quality review (fresh eyes)
 Review the PDF as a demanding recruiter for this exact role would. If you can start a separate reviewer (a sub-agent that hasn't seen your work), give it the job posting and the PDF and ask it to grade. Otherwise, reread it cold yourself.
 
 Grade each item pass or fail:
@@ -151,13 +165,14 @@ Grade each item pass or fail:
 | Evidence | At least 70% of bullets carry a number or a clear scope |
 | Relevance | No bullet in the latest role is irrelevant to this job |
 | Honesty | Every claim traces to the source resume or something the user confirmed |
+| Tech coherence | All five 6d tests pass, `tech_check.py` shows 0 FAIL, and each role reads as one believable stack |
 | Voice | No filler phrases (section 11), no repeated verb openers, no keyword lists inside bullets |
-| ATS | Every check in 6d passes |
+| ATS | Every check in 6e passes |
 | Layout | Same fonts, spacing and page count as the source, and nothing overflows |
 
 Fix every fail, then grade again. Don't deliver until all checks pass, except where an honest gap makes a check impossible.
 
-### 6f. Rescore and save
+### 6g. Rescore and save
 - Rescore with the section 4 formula. If an honest score is still below 85%, deliver the strongest honest version anyway and list the requirements holding it back, one line each.
 - Save the .docx and .pdf to the library and add the `index.json` entry.
 

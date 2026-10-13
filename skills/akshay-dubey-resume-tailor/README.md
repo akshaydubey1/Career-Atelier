@@ -17,6 +17,7 @@ Paste a job description. Resume Tailor scores it against your existing résumés
 - **Honest scoring.** It uses a fixed formula where must-haves count double, and it scores strictly.
 - **Never invents experience.** It only rewords and reorders what you've actually done. Courses and certifications are never passed off as work experience.
 - **Recruiter-grade tailoring.** It maps every requirement to your strongest proof, rewrites bullets as action + tools + result, checks the PDF the way an ATS reads it, and runs a recruiter-style review before delivering.
+- **Technically sound edits.** Every tool it adds fits the stack each job actually used and existed at the time (a built-in timeline check catches mistakes like Argo CD in a 2015 role). Tools you haven't used are never claimed; your real equivalents are framed in the posting's language instead.
 - **Keeps your formatting.** It edits a copy of your own Word file, so your fonts, spacing and layout stay the same.
 - **Reuses past work.** Every tailored résumé is saved and checked first next time, which saves time and effort.
 - **Clean files.** The PDFs carry only your name in their properties, with names like `AkshayDPTR.pdf` (résumé) and `AkshayDPTCL.pdf` (cover letter).
