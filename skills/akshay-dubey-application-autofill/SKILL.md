@@ -45,7 +45,7 @@ Save the answers to `applicant-profile.json` as soon as they're given. Ask again
 - government ID numbers (SSN, passport, driver's licence), date of birth beyond what a form strictly needs and the user gives in the moment
 - bank or card details
 
-**Voluntary self-identification** (gender, race and ethnicity, veteran status, disability) is the user's choice each time. Don't store it. Leave these fields untouched and list them in the review for the user to answer themselves.
+**Voluntary self-identification** (gender, race and ethnicity, veteran status, disability) is off by default: don't ask for it, leave these fields untouched, and list them in the review. Store and fill answers only if the user explicitly asks to save them, in the profile's `voluntarySelfId` section, and still list them in every review so the user sees what is being sent.
 
 ## 2. Before filling
 

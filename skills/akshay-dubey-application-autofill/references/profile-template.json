@@ -1,5 +1,5 @@
 {
-  "_note": "Applicant profile for Application Autofill: every detail job applications commonly ask for. Fill from the resume plus the user's answers. Use null for unknown. Never add passwords, government ID numbers, date of birth, bank or card details, visa or immigration document details, or voluntary self-identification answers (gender, race/ethnicity, veteran, disability). Those are entered by the user on the form itself.",
+  "_note": "Applicant profile for Application Autofill: every detail job applications commonly ask for. Fill from the resume plus the user's answers. Use null for unknown. Never add passwords, government ID numbers, date of birth, bank or card details, or visa or immigration document numbers. Voluntary self-identification answers are stored only if the user explicitly opts in.",
 
   "personal": {
     "legalFirstName": null,
@@ -110,6 +110,15 @@
     "libraryFolder": null,
     "baseResume": null,
     "tailoredResumesIndex": "index.json"
+  },
+
+  "voluntarySelfId": {
+    "_note": "Opt-in only. Leave out unless the user explicitly asks to save these.",
+    "hispanicOrLatino": null,
+    "race": null,
+    "veteranStatus": null,
+    "disabilityStatus": null,
+    "gender": null
   },
 
   "updated": null
