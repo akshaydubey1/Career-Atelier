@@ -1,0 +1,34 @@
+{
+  "_note": "Applicant profile for Application Autofill. Fill from the resume plus the user's answers. Never add passwords, government ID numbers, bank or card details, or voluntary self-identification answers.",
+  "fullName": "",
+  "preferredName": "",
+  "email": "",
+  "phone": "",
+  "address": { "city": "", "state": "", "postalCode": "", "country": "" },
+  "links": { "linkedin": "", "github": "", "portfolio": "" },
+  "workAuthorization": {
+    "authorizedCountries": [],
+    "needsSponsorshipNow": null,
+    "needsSponsorshipLater": null
+  },
+  "preferences": {
+    "workMode": "",
+    "willingToRelocate": null,
+    "relocationNotes": "",
+    "earliestStart": "",
+    "noticePeriod": "",
+    "salaryExpectation": "",
+    "travelPercent": ""
+  },
+  "standardAnswers": {
+    "over18": null,
+    "previouslyEmployedAt": [],
+    "nonCompete": null,
+    "backgroundCheckConsent": null,
+    "defaultReferralSource": ""
+  },
+  "education": [
+    { "degree": "", "field": "", "school": "", "graduationYear": "" }
+  ],
+  "updated": ""
+}

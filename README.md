@@ -9,6 +9,7 @@ Open-source skills for job seekers. Drop them into any AI tool that supports the
 | Skill | What it does |
 | --- | --- |
 | [Resume Tailor](skills/akshay-dubey-resume-tailor/) | Scores a job against your résumés. It skips jobs below a 50% match, reuses a résumé it already tailored, or builds the strongest honest résumé for the job, aiming for 85% or more, with technology-aware edits, an ATS check and a recruiter-style quality review. You get résumé and cover letter PDFs, plus a private job list. |
+| [Application Autofill](skills/akshay-dubey-application-autofill/) | Reads the job application form on your screen and fills it from your profile and tailored résumé, uploads the right files, drafts short answers, and stops for your review. Nothing is submitted without your yes. |
 
 ## Install a skill
 
